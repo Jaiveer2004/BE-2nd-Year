@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello G24.</h1>
+    
+    <!-- this tag is used to write javascript code in ejs file -->
+    <% let x = 34; %>
+    <% let name = "Jaiveer" %>
+
+    <!-- Used to render any ejs value on front end -->
+    <!-- <%= x %>
+    <%= name %> -->
+
+    <!-- If else statement -->
+    <% if (x < 18) { %>
+        <h2>You are not allowed to vote.</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, commodi!</p>
+    <% } else { %> 
+        <h2>You are allowed to vote.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+    <% } %>  
+    
+    <!-- For loop -->
+    <% for (let i = 0; i < 5; i++) { %>
+        <p>Value of i: <%= i %></p>
+    <% } %>
+    
+    <% let arr = [23, 45, 23, 64, 55] %>
+    <% for (let i = 0; i < arr.length; i++) { %>
+        <p>Value of arr at index <%= i %> is: <%= arr[i] %></p>
+    <% } %>
+</body>
+</html>
