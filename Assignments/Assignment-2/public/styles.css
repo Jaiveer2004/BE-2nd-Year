@@ -1,9 +1,13 @@
 body {
-    background-color: #f8f9fa; /* Light gray background */
+    color: #ffffff; /* Default text color */
 }
 
 .container {
     max-width: 800px; /* Limit the width of the content */
+}
+
+.form-control {
+    border: 1px solid #444; /* Darker border for input fields */
 }
 
 .btn {
