@@ -1,15 +1,86 @@
+/* General Styles */
 body {
-    color: #ffffff; /* Default text color */
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background for all pages */
+    color: #ffffff; /* Light text for contrast */
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 800px; /* Limit the width of the content */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.form-control {
-    border: 1px solid #444; /* Darker border for input fields */
+h1, h5 {
+    color: #bb86fc; /* Accent color for headings */
+}
+
+a {
+    color: #bb86fc; /* Accent color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .btn {
     margin-top: 10px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #bb86fc; /* Accent color for primary buttons */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #9c67eb; /* Slightly darker on hover */
+}
+
+.btn-light {
+    background-color: #ffffff; /* Light button for contrast */
+    color: #121212;
+    border: none;
+}
+
+.btn-light:hover {
+    background-color: #e0e0e0; /* Slightly darker on hover */
+}
+
+/* Forms */
+.form-control {
+    background-color: #1e1e1e; /* Dark input fields */
+    border: 1px solid #444;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: #bb86fc; /* Accent color for focus */
+    box-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+}
+
+/* List Items */
+.list-group-item {
+    background-color: #1e1e1e; /* Dark background for list items */
+    border: none;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.list-group-item:hover {
+    background-color: #2a2a2a; /* Slightly lighter on hover */
+}
+
+/* Paragraphs */
+p {
+    color: #e0e0e0; /* Light gray for paragraphs */
+}
+
+small {
+    color: #888; /* Even lighter gray for metadata */
 }
