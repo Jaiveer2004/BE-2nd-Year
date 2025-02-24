@@ -1,18 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const path = require('path');
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', 'views');
 
 // Logging Middleware
 app.use((req, res, next) => {
@@ -22,16 +21,16 @@ app.use((req, res, next) => {
 
 // Routes
 
-// GET /posts → Display all blog posts
+// GET /posts : Display all blog posts
 app.get('/posts', (req, res) => {
-    const posts = JSON.parse(fs.readFileSync(path.join(__dirname, 'posts.json'), 'utf-8'));
+    const posts = JSON.parse(fs.readFileSync('posts.json', 'utf-8'));
     res.render('home', { posts });
 });
 
-// GET /post?id=1 → Display a single post based on query parameter
+// GET /post?id=1 : Display a single post based on query parameter
 app.get('/post', (req, res) => {
     const postId = req.query.id;
-    const posts = JSON.parse(fs.readFileSync(path.join(__dirname, 'posts.json'), 'utf-8'));
+    const posts = JSON.parse(fs.readFileSync('posts.json', 'utf-8'));
     const post = posts.find(p => p.id === parseInt(postId));
 
     if (!post) {
@@ -41,15 +40,15 @@ app.get('/post', (req, res) => {
     res.render('post', { post });
 });
 
-// POST /add-post → Add a new post
-app.post('/add-post', (req, res) => {
+// POST /posts → Add a new post
+app.post('/posts', (req, res) => {
     const { title, content } = req.body;
 
     if (!title || !content) {
         return res.status(400).send('Title and content are required');
     }
 
-    const posts = JSON.parse(fs.readFileSync(path.join(__dirname, 'posts.json'), 'utf-8'));
+    const posts = JSON.parse(fs.readFileSync('posts.json', 'utf-8'));
 
     const newPost = {
         id: posts.length + 1,
@@ -59,7 +58,7 @@ app.post('/add-post', (req, res) => {
     };
 
     posts.push(newPost);
-    fs.writeFileSync(path.join(__dirname, 'posts.json'), JSON.stringify(posts, null, 2));
+    fs.writeFileSync('posts.json', JSON.stringify(posts, null, 2));
 
     res.redirect('/posts');
 });
